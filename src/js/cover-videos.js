@@ -4,15 +4,14 @@ define([
 ], function ($, require) {
   // Force jQuery.mousewheel to be loaded if it hasn't already
 
-  if ($.fn.cover-videos == null) {
+  if ($.fn.videocover == null) {
     // All methods that should return the element
     var thisMethods = ['open', 'close', 'destroy'];
 
-    $.fn.cover-videos = function (videoContainer, videoSelector, videoRegionSelector, vid_min_w, vid_w_orig, vid_h_orig) {
+    $.fn.videocover = function (videoContainer, videoSelector, videoRegionSelector, vid_min_w, vid_w_orig, vid_h_orig) {
         
         // set the height of the video container to a referencing element
         $(videoContainer).height($(videoRegionSelector).height());
-      
       
         // use largest scale factor of horizontal/vertical
         var scale_h = $(videoContainer).width() / vid_w_orig;
@@ -23,8 +22,8 @@ define([
         if (scale * vid_w_orig < vid_min_w) {scale = vid_min_w / vid_w_orig;};
     
         // now scale the video
-        $(videoSelector ).width(scale * vid_w_orig);
-        $(videoSelector ).height(scale * vid_h_orig);
+        $(videoSelector).width(scale * vid_w_orig);
+        $(videoSelector).height(scale * vid_h_orig);
         
         // this centers the viewport
         $(videoContainer).scrollLeft(($(videoSelector).width() - $(window).width()) / 2);
@@ -33,9 +32,9 @@ define([
     };
   }
 
-  if ($.fn.cover-videos.defaults == null) {
-    $.fn.cover-videos.defaults = Defaults;
+  if ($.fn.videocover.defaults == null) {
+    $.fn.videocover.defaults = Defaults;
   }
 
-  return cover-videos;
+  return videocover;
 });
