@@ -1,0 +1,7 @@
+# Ignore Eclipse project settings.
+.settings
+.buildpath
+.project
+
+# Ignore OS-specific files.
+.DS_Store
